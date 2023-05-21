@@ -14,7 +14,12 @@ public class PeliculaServiceImpl implements PeliculaService {
 
     @Override
     public List<Pelicula> getPeliculas() {
-        return peliculaRepository.findAll();
+
+        List<Pelicula> peliculas = peliculaRepository.findAll();
+
+        System.out.println(peliculas.toString());
+
+        return peliculas;
     }
 
     @Override
