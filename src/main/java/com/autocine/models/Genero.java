@@ -1,12 +1,14 @@
 package com.autocine.models;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +30,7 @@ public class Genero {
 
     private String nombre;
 
-    @ManyToMany(mappedBy = "generos")
+    @ManyToMany(mappedBy = "generos", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<Pelicula> peliculas = new HashSet<>();
 }

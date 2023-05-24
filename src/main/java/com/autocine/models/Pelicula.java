@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -40,7 +39,7 @@ public class Pelicula {
     private String clasificacion;
 
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JsonBackReference
+    @JsonIgnore
     @JoinTable(name = "pelicula_genero", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_genero"))
     private Set<Genero> generos = new HashSet<>();
 
