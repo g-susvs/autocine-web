@@ -9,6 +9,8 @@ import com.autocine.models.Pelicula;
 public interface PeliculaService {
     List<PeliculaDTO> getPeliculas();
 
+    PeliculaDTO getPeliculaById(Long id);
+
     Pelicula save(PeliculaRequest peliculaRequest);
 
     void delete(Long id);

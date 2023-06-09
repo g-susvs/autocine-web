@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.autocine.DTO.PeliculaDTO;
 import com.autocine.models.Genero;
@@ -38,5 +40,13 @@ public class PeliculaController {
         List<PeliculaDTO> peliculas = peliculaService.getPeliculas();
         model.addAttribute("peliculas", peliculas);
         return "pelicula/lista";
+    }
+
+    @GetMapping("/detalle/{id}")
+    public String detalle(@PathVariable Long id, Model model) {
+        PeliculaDTO pelicula = peliculaService.getPeliculaById(id);
+
+        model.addAttribute("pelicula", pelicula);
+        return "pelicula/detalle";
     }
 }

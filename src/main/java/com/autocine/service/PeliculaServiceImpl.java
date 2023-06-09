@@ -80,4 +80,32 @@ public class PeliculaServiceImpl implements PeliculaService {
         peliculaRepository.deleteById(id);
     }
 
+    @Override
+    public PeliculaDTO getPeliculaById(Long id) {
+        List<Object[]> peliculas = peliculaRepository.findPeliculaByIdQM(id);
+        PeliculaDTO peliculaDTO = new PeliculaDTO();
+
+        for (Object[] p : peliculas) {
+            peliculaDTO.setId(((Long) p[0]));
+            peliculaDTO.setTitulo((String) p[1]);
+            peliculaDTO.setDuracion((String) p[2]);
+            peliculaDTO.setClasificacion((String) p[3]);
+            peliculaDTO.setSinopsis((String) p[4]);
+
+            String generosString = (String) p[5];
+            String[] generosArray = generosString.split(", ");
+
+            Set<String> generosSet = new HashSet<>();
+            for (String genero : generosArray) {
+                generosSet.add(genero);
+            }
+            peliculaDTO.setGeneros(generosSet);
+        }
+        System.out.println("=============");
+        System.out.println(peliculaDTO.getTitulo());
+        System.out.println("=============");
+
+        return peliculaDTO;
+    }
+
 }

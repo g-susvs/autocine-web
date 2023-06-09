@@ -24,6 +24,7 @@
 						<th>Clasificacion</th>
 						<th>Genero</th>
 						<th>Sinopsis</th>
+						<th>Detalle</th>
 					</tr>
 				</thead>
 				<thead>
@@ -34,6 +35,10 @@
 						<td th:text="${Pelicula.clasificacion}">Clasificacion</td>
 						<td th:text="${Pelicula.generos}">Genero</td>
 						<td th:text="${Pelicula.sinopsis}">Sinopsis</td>
+						<td>
+							<a th:href="@{/pelicula/detalle/{id} (id=${Pelicula.id})}" class="btn btn-warning">Ver
+								detalle</a>
+						</td>
 					</tr>
 				</thead>
 			</table>
