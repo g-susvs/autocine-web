@@ -2,7 +2,6 @@ package com.autocine.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.autocine.service.FuncionService;
 import com.autocine.service.FuncionServiceImpl;
 import com.autocine.service.UsuarioService;
@@ -33,5 +32,5 @@ public class ConfigurationBean {
     @Bean
     PeliculaService peliculaService() {
         return new PeliculaServiceImpl();
-    }
+    } 
 }
