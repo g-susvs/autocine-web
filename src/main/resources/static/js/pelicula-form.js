@@ -27,6 +27,16 @@ d.addEventListener("submit", (e) => {
     generos: generosSeleccionados,
   };
 
+  if (generosSeleccionados.length == 0) {
+    console.log("Selecciona generos");
+    $spinner.classList.add("none");
+    Swal.fire({
+      text: "Seleccion por lo menos un genero",
+      icon: "error",
+    });
+    return;
+  }
+
   registrarPelicula(body);
 });
 
