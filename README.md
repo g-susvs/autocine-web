@@ -8,6 +8,7 @@ En esa carpeta existe un archivo de ejemplo con todos los valores que debe tener
 
 ```properties
 # example.application.properties
+# crear base de datos autocine
 
 spring.output.ansi.enabled=ALWAYS
 
@@ -17,5 +18,5 @@ spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
-spring.jpa.show-sql: true
+spring.jpa.show-sql=true
 ```
