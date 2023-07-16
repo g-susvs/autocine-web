@@ -2,17 +2,19 @@
     <a class="navbar-brand mr-auto" th:href="@{/}" style="margin-left: 10px;">
         <img src="/img/logo.png" width="150px" height="80px" alt="">
     </a>
+    
+    
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="margin: auto;">
-            <li class="nav-item"><a class="nav-link" th:href="@{/pelicula/lista}">Peliculas</a></li>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR','USUARIO')"><a class="nav-link" th:href="@{/pelicula/lista}">Peliculas</a></li><br>
         </ul>
-
-        <!-- <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Buscar">
-        </form>
-
-        <form style="margin-left: 20px;">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form> -->
+        <div sec:authorize="isAnonymous()">
+        <a class="btn btn-primary" th:href="@{/index}" style="background-color: black;border-color: black;left:100px">Ingresar</a>
+        <a class="btn btn-primary" th:href="@{/signup}" style="background-color: black;border-color: black;margin-right:10px">Crear</a><br>
+		</div>
+		<div sec:authorize="isAuthenticated()">
+		<span class="text-light">Bienvenido</span>&nbsp;<span class="text-light" sec:authentication="name"></span>&nbsp;
+		<a class="btn btn-primary" th:href="@{/logout}">Salir</a>
+	</div> 
 </nav>

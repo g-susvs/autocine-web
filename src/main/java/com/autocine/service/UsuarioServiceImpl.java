@@ -22,9 +22,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public void deleteUsuario(Long id) {
-		usuarioRepository.deleteById(id);
-
+	public Usuario buscarPorUsername(String username) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findByUsername(username);
 	}
+
 
 }
