@@ -17,9 +17,17 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <img class="rounded mx-auto d-block"
-                        src="https://t3.ftcdn.net/jpg/03/34/83/22/360_F_334832255_IMxvzYRygjd20VlSaIAFZrQWjozQH6BQ.jpg"
-                        alt="Generic placeholder image" width="220" height="300">
+
+                    <img th:if="${pelicula.imagen != null and pelicula.imagen != '' and pelicula.imagen.contains('cloudinary')}"
+                        th:src="${pelicula.imagen}" width="220" height="250" />
+                    <img th:unless="${pelicula.imagen != null and pelicula.imagen != '' and pelicula.imagen.contains('cloudinary')}"
+                        th:src="@{/img/no-image.jpg}" class="rounded mx-auto d-block" width="220" height="250" />
+
+
+                    <!-- <img th:if="${pelicula.imagen != null || pelicula.imagen.contains('cloudinary') }"
+                        th:src="${pelicula.imagen}" width="220" height="250" />
+                    <img th:unless="${pelicula.imagen != null || pelicula.imagen.contains('cloudinary') }"
+                        th:src="@{/img/no-image.jpg}" class="rounded mx-auto d-block" width="220" height="250" /> -->
                 </div>
                 <div class=" col-md-9">
                     <div class="card">

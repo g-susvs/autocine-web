@@ -11,7 +11,8 @@ public class PeliculaDTO {
     private String titulo;
     private String duracion;
     private String sinopsis;
-    private String clasificacion;
+    private Short clasificacion;
+    private String imagen;
     private Set<String> generos = new HashSet<>();
 }
 

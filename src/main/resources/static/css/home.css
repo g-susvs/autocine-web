@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Kanit:ital@1&display=swap');
+
+/*
+Es un selector, que tiene la mayor jerarquia. Se recomienda colocar las variables en este selector
+*/
+:root{
+    --color-primario: #06283D;
+    --color-secundario: #9d0f0f;
+    --color-terciario: #75d83c;
+    --color-cuaternario: #DFF6FF;
+    --color-sombras: #191919;
+    --color-titulos: #2D4263;
+    --color-textos: #C84B31;
+    --color-fondo: #ECDBBA;
+}
+    /* para quitar todos los bordes por defecto */
+*, *::before, *::after{  /* los '*' son los selectores universales */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color-fondo);
+}
+
+/* INICIO DE MENU */
+
+header{
+    background-color: #FFF;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 1px 1px 4px #000;
+}
+
+.menu{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.menu .logo img{
+    height: 60px;
+}
+
+.menu .btn-menu{
+    display: none;
+}
+
+.menu .enlaces{
+    display: inline-block;
+    text-align: right;
+}
+
+.menu .enlaces a{
+    color: var(--color-titulos);
+    text-decoration: none;
+    padding: 1em;
+    font-size: 1em;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu .enlaces a:hover{
+    color: var(--color-textos);
+}
+
+.headroom{
+    transition: transform .3s ease;
+}
+
+.headroom--pinned{
+    transform: translateY(0%);
+}
+
+.headroom--unpineed{
+    transform: translateY(-100%);
+}
+
+/* PROPIEDADES PARA DISPOSITIVOS MOVILES */
+
+@media screen and (max-width: 1000px) {
+    
+    header .menu{
+        flex-direction: column;
+    }
+
+    header .menu .logo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    header .menu .btn-menu{
+        display: inline-block;
+        margin-top: 0.2em;
+        color: #df3c13;
+        font-size: 2em;
+    }
+
+    header .menu .enlaces{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ----------------------------------------------------------------------------- */
+
+    
+}
+
+/* FIN DE PROPIEDADES MOVILES */
+
+/* FIN DE MENÚ */
+
+/* INICIO DE BANNER */
+
+/*
+Los em es una unidad de medida que equivale a 16 pixeles aproximadamente, es una medidad relativa que se recomienda usarlo siempre que se trabaje con páginas web y aplicaciones
+*/
+.main-banner{
+    position: relative;
+    padding: 16em 0 18em;  /* separacion de arriba costados abajo*/
+    background: linear-gradient(to right, rgb(230, 81, 43), lightblue); /* degradado */
+    top: 3.8em;  /* separacion de la parte de arriba */
+    z-index: 100;
+}
+
+.main-banner::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+
+    /* modos de fucion */
+    background-color: rgb(109, 16, 16);
+    mix-blend-mode: color-dodge;
+    opacity: .4;  /* opacidad */
+}
+
+.main-banner-img{
+    position: absolute;  /* posicionar una imagen encima de otro */
+    width: 100%;  /* ancho/largo */
+    height: 100%;  /* alto */
+    top: 0; /* parte superior */
+    left: 0; /* izquierda */
+    object-fit: cover;  /* permite rellenar la caja */
+    /* cover=proporcion normal */
+    /* contain= centrado */
+    /* fill= estirado */
+    opacity: .5; /* opacidad */
+}
+
+.container{ /* esta llamando al container */
+    position: relative; /* posicionar capas encima */
+    z-index: 10; /* pone el texto encima */
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center; /* alinear el texto al centro */
+}
+
+.row{
+    display: flex;/* para pantallas mobiles, ponerlo en medio */
+    flex-wrap: wrap;/* desplazarse a la linea siguiente */
+}
+
+.centrado{ /* centrar el bloque de texto */
+    display: block;
+    margin-right: auto; /* 156 */
+    margin-left: auto; /* 157 */
+}
+
+.main-banner-titulo{
+    color: #FFF;  /* color de letra */
+    font-size: 3em;  /* tamañp de letra/fuente */
+    font-family: 'Kanit', sans-serif;
+    text-transform: uppercase; /* ponerlo en mayuscula */
+}
+
+.main-banner-parrafo{
+    color: #FFF;
+    font-size: 1em;
+    font-family: 'Heebo', sans-serif;
+}
+
+.main-banner-boton{
+    border: none; /* eliminar cualquier border */
+    background-color: var(--color-primario); /* color de fondo */
+    padding: .7em .9em; /* Margin interno*/
+    text-decoration: none; /* Quitar el subrayado */
+    font-size: 1em; /* tamaño de fuente */
+    font-family: 'Heebo', sans-serif; /* tipo de letra */
+    border-radius: 9px; /* color de letra */
+    font-weight: bold; /* negrita */
+    transition: background-color .5s linear; /* ponerlo dinamico para que cambie color */
+    display: inline-block;
+    margin-top: 1em;
+}
+
+/*
+hover es una pseudo clase que hace que al pasar el cursor halla cambios
+*/
+.main-banner-boton:hover{
+    background-color: #47B5FF;
+    color: #06283D;
+    font-size: 1em;
+    font-family: 'Heebo', sans-serif; /* tipo de letra */
+    font-weight: bold; /* negrita */
+}
+
+@media screen and (max-width: 640px){
+    .main-banner-boton{
+        background-color: #C84B31;
+    }
+    .main-banner-titulo{
+        font-size: .5em;
+    }
+}
+
+.cards-grid{
+
+    display: grid;
+    gap: 2em; /* "gap" sirve para crear un espacio */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    /* para hacer columnas/ repetir (auto-rellenen, cuanto de ancho cada tarjetita, 
+    1fr = para que aparezca en una fila ocupe la mayor cantidad de columnas necesarias */
+}
+
+.card{
+    background-color:#FFF;
+    border-radius: 1em; /* quitar los bordes */
+    border: 0px solid var(--color-sombras); /* poner mas gruesa los bordes negros */
+      /* grosor solido color */
+    box-shadow: 6px 8px 10px 2px var(--color-sombras); 
+    /* sonbra   Hozt. vert. difuminado. profundizar-el-dif. color. */
+}
+
+.card-img img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em 1em 0 0;
+    /* arriba derecha abajo izquierda */
+}
+
+.card-title{
+    font-size: 1em;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    text-decoration: none; /* quitar el subrayado clasico */
+    margin-top: 1em;
+}
+
+.card-info{
+    font-size: 1em; /* tamaño de fuente */
+    padding: 0em 4.2em 0em 4.2em;
+    /* padding: 0.2em 5em 0.2em 5em; */
+    border-radius: 0.3em;
+    text-decoration: none; /* para quitar el subrayado */
+    border: 2px solid red;  
+    color: #C84B31;
+    font-weight: bold /* poner la letra gruesa */
+}
+/* ----------------------------------------------------------------------------------------- */
+
+.testeo{
+    margin: .7em .3em .7em .3em; 
+}
+
+.cards-grid-benef{
+    display: grid;
+    gap: 2em; /* "gap" sirve para crear un espacio */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    /* para hacer columnas/ repetir (auto-rellenen, cuanto de ancho cada tarjetita, 
+    1fr = para que aparezca en una fila ocupe la mayor cantidad de columnas necesarias */
+}
+
+.card-img-benef img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 0em 0em 0 0;
+    /* arriba derecha abajo izquierda */
+}
+
+.titulo1{
+    margin: 1em 0em .4em 0em;
+}
+
+.titulo2{
+    margin: 1em 0em .4em 0em;
+}

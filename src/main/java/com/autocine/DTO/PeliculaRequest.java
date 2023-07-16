@@ -10,6 +10,6 @@ public class PeliculaRequest {
     private String titulo;
     private String duracion;
     private String sinopsis;
-    private String clasificacion;
+    private Short clasificacion;
     private Set<Short> generos = new HashSet<>();
 }
