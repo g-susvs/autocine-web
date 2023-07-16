@@ -9,6 +9,9 @@ d.addEventListener("submit", (e) => {
 
   const form = new FormData($form);
 
+  const selectClasificacion = d.getElementById("select-clasificacion");
+  // console.log(selectClasificacion.value);
+
   const checkboxes = document.querySelectorAll(
     'input[type="checkbox"]:checked'
   );
@@ -23,7 +26,7 @@ d.addEventListener("submit", (e) => {
     titulo: form.get("titulo"),
     duracion: form.get("duracion"),
     sinopsis: form.get("sinopsis"),
-    clasificacion: form.get("clasificacion"),
+    clasificacion: selectClasificacion.value,
     generos: generosSeleccionados,
   };
 
@@ -37,6 +40,7 @@ d.addEventListener("submit", (e) => {
     return;
   }
 
+  console.log($form);
   registrarPelicula(body);
 });
 
@@ -56,17 +60,18 @@ const registrarPelicula = async (body) => {
       console.log(`Se registro la pelicula ${data.titulo}`);
       // Quitar loader
       $spinner.classList.add("none");
-      const alerta = await Swal.fire({
-        title: "Listo!",
-        text: "La pelicula a sido creada",
-        icon: "success",
-        confirmButtonText: "Volver al inicio",
-        allowOutsideClick: false,
-      });
+      // const alerta = await Swal.fire({
+      //   title: "Listo!",
+      //   text: "La pelicula a sido creada",
+      //   icon: "success",
+      //   confirmButtonText: "Volver al inicio",
+      //   allowOutsideClick: false,
+      // });
 
-      if (alerta.isConfirmed) {
-        location.replace("http://localhost:8080/");
-      }
+      // if (alerta.isConfirmed) {
+      //   location.replace("http://localhost:8080/");
+      // }
+      location.replace(`http://localhost:8080/pelicula/formimg/${data.id}`);
     }
   } catch (error) {
     console.log(error);

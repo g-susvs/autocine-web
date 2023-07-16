@@ -15,22 +15,212 @@
 </head>
 
 <body>
-    <!-- <h1>Bienvenido</h1> -->
-    <!-- <div class="container-"> -->
-    <header th:insert="layout/menu :: menu-principal"></header>
-    <!-- <header> -->
-    <!-- header -->
-    <!-- </header> -->
-    <main>
-        <section id="section-carousel" class="mx-auto" style="width: 900px; height: 500px;">
-            <div th:replace="/layout/carousel-slide :: carousel"></div>
-        </section>
-    </main>
-    <footer>
-        footer
-    </footer>
+    <!--INICO DE MENÚ-->
 
+    <header id="header">
+
+        <header th:insert="layout/menu :: menu-principal"></header>
+    </header>
+
+    <!--FINAL DE MENÚ-->
+
+
+    <!-- INICIO BANNER -->
+
+    <main class="main-banner">
+
+        <img src="/img/home/cine.jpg" alt="" class="main-banner-img" />
+
+        <div class="container"> <!--El 'container' es de boostrap que Crea un contenedor que este centrado -->
+
+            <div class="row centrado"> <!-- para la linea 167 de css -->
+
+                <div class="main-banner-data">
+
+                    <h1 class="main-banner-titulo">
+                        DARTE LA MEJOR SATISFACCION HACIA NUESTROS CLIENTES
+                    </h1>
+
+                    <p class="main-banner-parrafo">
+                        Siempre queremos que nuestros clientes se sientan satisfechos viendo nuestras peliculas en
+                        cartelera,
+                        y que tengan la mejor calidad en nuestras salas
+                    </p>
+
+                    <a href="#" class="main-banner-boton">Cartelera</a>
+                    <a href="#" class="main-banner-boton">Proximos eventos</a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FINAL BANNER -->
+    <br><br><br><br><br>
+    <!-- INICIO CARDS -->
+
+    <div class="container">
+        <div>
+            <h1 class="titulo1">Nuestros beneficios</h1>
+        </div>
+        <div class="cards-grid-benef">
+            <div class="card-benef">
+                <div class="card-img-benef">
+                    <img src="/img/home/A1.jpg" alt="">
+                    Mejor Satisfaccion
+                </div>
+            </div>
+
+
+            <div class="card-benef">
+                <div class="card-img-benef">
+                    <img src="/img/home/A2.png" alt="">
+                    100% Original
+                </div>
+            </div>
+
+
+            <div class="card-benef">
+                <div class="card-img-benef">
+                    <img src="/img/home/A3.jpg" alt="">
+                    Asesoria del cliente
+                </div>
+            </div>
+
+
+            <div class="card-benef">
+                <div class="card-img-benef">
+                    <img src="/img/home/A4.jpg" alt="">
+                    Emprendimiento
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="titulo2">Algunas que podrian gustarte de peliculas</h1>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli1.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">JOCKER <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli2.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">BATMAN REGRESA <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli3.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">VOLVIENDO AL FUTURO <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli4.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">LINTERNA VERDE <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli5.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">THE FLASH <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli6.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">AVENGERS - INFINITY WAR <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli7.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">TOY STORY <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/home/peli8.jpg" alt="">
+                </div>
+                <div class="card-content">
+                    <a href="#">
+                        <h1 class="card-title">ACTIVIDAD PARANORMAL - 3 <br> AutoCI 202</h1>
+                        <div class="testeo">
+                            <a href="#" class="card-info">Conocer más</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- </div> -->
+
+    <br>
+    <br>
 
 </body>
 

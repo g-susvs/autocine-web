@@ -1,20 +1,64 @@
-<nav th:fragment="menu-principal" class="navbar navbar-expand-md navbar-dark bg-dark flex-row">
+<nav th:fragment="menu-admin" class="navbar navbar-expand-md navbar-dark bg-dark flex-row">
     <a class="navbar-brand mr-auto" th:href="@{/}" style="margin-left: 10px;">
         <img src="/img/logo.png" width="150px" height="80px" alt="">
     </a>
-    
-    
+
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="margin: auto;">
-            <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR','USUARIO')"><a class="nav-link" th:href="@{/pelicula/lista}">Peliculas</a></li><br>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR','USUARIO')"><a
+                    class="nav-link" th:href="@{/pelicula/lista}">Peliculas</a></li><br>
         </ul>
         <div sec:authorize="isAnonymous()">
-        <a class="btn btn-primary" th:href="@{/index}" style="background-color: black;border-color: black;left:100px">Ingresar</a>
-        <a class="btn btn-primary" th:href="@{/signup}" style="background-color: black;border-color: black;margin-right:10px">Crear</a><br>
-		</div>
-		<div sec:authorize="isAuthenticated()">
-		<span class="text-light">Bienvenido</span>&nbsp;<span class="text-light" sec:authentication="name"></span>&nbsp;
-		<a class="btn btn-primary" th:href="@{/logout}">Salir</a>
-	</div> 
+            <a class="btn btn-primary" th:href="@{/index}"
+                style="background-color: black;border-color: black;left:100px">Ingresar</a>
+            <a class="btn btn-primary" th:href="@{/signup}"
+                style="background-color: black;border-color: black;margin-right:10px">Crear</a><br>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <span class="text-light">Bienvenido</span>&nbsp;<span class="text-light"
+                sec:authentication="name"></span>&nbsp;
+            <a class="btn btn-primary" th:href="@{/logout}">Salir</a>
+        </div>
+</nav>
+
+
+
+<nav class="menu" th:fragment="menu-principal">
+
+    <div class="logo">
+        <a th:href="@{/}">
+            <img src="/img/logo.png" alt="aqui hay un logo xd" class="img-fluid logos">
+        </a>
+        <a href="#" class="btn-menu" id="btn-menu">
+            <i class="icono-menu fa-solid fa-bars"></i>
+        </a>
+    </div>
+
+
+
+    <div class="enlaces" id="enlaces">
+        <a href="#">INICIO</a>
+        <a href="#">PELICULAS</a>
+        <a href="#">CANCHITA</a>
+        <a href="#">CONTACTOS</a>
+        <a href="#">SOBRE NOSOTROS</a>
+        <a sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')" th:href="@{/pelicula/lista}">ADMIN</a>
+
+    </div>
+    <div>
+        <div sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/index}"
+                style="background-color: black;border-color: black;left:100px">Ingresar</a>
+            <a class="btn btn-primary" th:href="@{/signup}"
+                style="background-color: black;border-color: black;margin-right:10px">Crear</a><br>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <span>Bienvenido</span>&nbsp;<span sec:authentication="name"></span>&nbsp;
+            <a class="btn btn-primary" th:href="@{/logout}"
+                style="background-color: black;border-color: black;">Salir</a>
+        </div>
+    </div>
+
 </nav>

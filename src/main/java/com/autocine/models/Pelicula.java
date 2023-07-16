@@ -17,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -36,8 +37,13 @@ public class Pelicula {
     private String titulo;
     private String duracion;
     private String sinopsis;
-    private String clasificacion;
+    private String imagen = "";
 
+    @ManyToOne
+    @JoinColumn(name = "id_clasificacion")
+    private Clasificacion clasificacion;
+
+    // private String clasificacion;
     @ManyToMany(cascade = CascadeType.MERGE)
     @JsonIgnore
     @JoinTable(name = "pelicula_genero", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_genero"))

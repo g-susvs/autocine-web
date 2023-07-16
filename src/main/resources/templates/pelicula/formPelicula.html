@@ -34,12 +34,12 @@
                         placeholder="Duración" />
                 </div>
             </div>
-            <div class="form-group row pb-2">
-                <label for="clasificacion" class="col-sm-2 col-form-label">Clasificacion:</label>
-                <div class="col-sm-10">
-                    <input required type="text" class="form-control" id="clasificacion" name="clasificacion"
-                        placeholder="Ingrese Clasificacion" />
-                </div>
+            <div class="form-group row ps-2 pe-3">
+                <select class="form-select" id="select-clasificacion" aria-label="Default select example">
+                    <option value="none-select" selected>Selecciona una clasificación</option>
+                    <option th:each="clasificacion : ${clasificaciones}" th:value="${clasificacion.id}"
+                        th:text="${clasificacion.clasificacion}"></option>
+                </select>
             </div>
             <div class="form-group row">
                 <label for="genero" class="col-sm-2 col-form-label">

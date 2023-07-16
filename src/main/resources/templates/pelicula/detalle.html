@@ -9,17 +9,90 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
+<style>
+    header {
+        background-color: #FFF;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 1px 1px 4px #000;
+    }
+
+    .menu {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: inline-block;
+        margin-right: 1em;
+    }
+
+    .menu .logo img {
+        height: 60px;
+    }
+
+    .menu .btn-menu {
+        display: none;
+    }
+
+    .menu .enlaces {
+        display: inline-block;
+        text-align: right;
+    }
+
+    .menu .enlaces a {
+        color: var(--color-titulos);
+        text-decoration: none;
+        padding: 1em;
+        font-size: 1em;
+        font-family: 'Heebo', sans-serif;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .menu .enlaces a:hover {
+        color: var(--color-textos);
+    }
+
+    .headroom {
+        transition: transform .3s ease;
+    }
+
+    .headroom--pinned {
+        transform: translateY(0%);
+    }
+
+    .headroom--unpineed {
+        transform: translateY(-100%);
+    }
+</style>
+
 <body>
     <header th:insert="layout/menu :: menu-principal"></header>
     <main role="main">
         <hr>
-        <div class="container">
+        <br><br>
+        <div class="container pb-4">
 
             <div class="row">
                 <div class="col-md-3">
-                    <img class="rounded mx-auto d-block"
-                        src="https://t3.ftcdn.net/jpg/03/34/83/22/360_F_334832255_IMxvzYRygjd20VlSaIAFZrQWjozQH6BQ.jpg"
-                        alt="Generic placeholder image" width="220" height="300">
+
+                    <img th:if="${pelicula.imagen != null and pelicula.imagen != '' and pelicula.imagen.contains('cloudinary')}"
+                        th:src="${pelicula.imagen}" width="220" height="250" />
+                    <img th:unless="${pelicula.imagen != null and pelicula.imagen != '' and pelicula.imagen.contains('cloudinary')}"
+                        th:src="@{/img/no-image.jpg}" class="rounded mx-auto d-block" width="220" height="250" />
+
+
+                    <!-- <img th:if="${pelicula.imagen != null || pelicula.imagen.contains('cloudinary') }"
+                        th:src="${pelicula.imagen}" width="220" height="250" />
+                    <img th:unless="${pelicula.imagen != null || pelicula.imagen.contains('cloudinary') }"
+                        th:src="@{/img/no-image.jpg}" class="rounded mx-auto d-block" width="220" height="250" /> -->
                 </div>
                 <div class=" col-md-9">
                     <div class="card">
